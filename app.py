@@ -4,16 +4,22 @@ import streamlit as st
 import pandas as pd
 import time
 import matplotlib.pyplot as plt
-
+import json
 
 # 🔥 Initialize Firebase (SAFE VERSION)
 import firebase_admin
 from firebase_admin import credentials, firestore
 
+
+# Load Firebase key from secrets
+firebase_dict = json.loads(st.secrets["firebase_key"])
+
+# Initialize only once
 if not firebase_admin._apps:
-    cred = credentials.Certificate("firebase_key.json")
+    cred = credentials.Certificate(firebase_dict)
     firebase_admin.initialize_app(cred)
 
+db = firestore.client()
 db = firestore.client()
 # ✅ ADD USER
 def add_user(username, password):
