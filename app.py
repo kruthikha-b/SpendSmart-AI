@@ -11,15 +11,15 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 
 
-# Load Firebase key from secrets
-firebase_dict = st.secrets["firebase_key"]
 
-# Initialize only once
+
+firebase_dict = dict(st.secrets["firebase_key"])  # 🔥 FIX
+
 if not firebase_admin._apps:
     cred = credentials.Certificate(firebase_dict)
     firebase_admin.initialize_app(cred)
 
-db = firestore.client()
+
 db = firestore.client()
 # ✅ ADD USER
 def add_user(username, password):
