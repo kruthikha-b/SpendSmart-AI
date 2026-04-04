@@ -12,7 +12,7 @@ from firebase_admin import credentials, firestore
 
 
 # Load Firebase key from secrets
-firebase_dict = json.loads(st.secrets["firebase_key"])
+firebase_dict = st.secrets["firebase_key"]
 
 # Initialize only once
 if not firebase_admin._apps:
