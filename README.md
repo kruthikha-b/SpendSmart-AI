@@ -126,21 +126,11 @@ Date,Description,Amount
 * 💡 Personalized financial tips
 * 📱 Mobile-friendly UI
 
----
 
-## 🤝 Contributing
-
-Feel free to fork this repo and improve it!
-
----
 
 ## 👩‍💻 Author
 
 **Kruthikha B**
 CSE (Data Science) Student | Developer
 
----
 
-## ⭐ Show Some Love
-
-If you liked this project, give it a ⭐ on GitHub!
