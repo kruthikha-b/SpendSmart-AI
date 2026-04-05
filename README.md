@@ -1,44 +1,146 @@
-AI-Financial-Advisor
-AI Financial Advisor (SpendSmart AI)
+# 💸 SpendSmart AI
 
-A simple AI-powered financial advisor built using Streamlit that helps users track expenses, analyze spending patterns, and make smarter financial decisions through data-driven insights and visualizations.
+🚀 **Your Money. Simplified.**
 
-Approach
-Frontend & UI: Built using Streamlit for interactive dashboards
-Data Processing: Used Pandas and NumPy for efficient data handling
-Authentication: Custom module for user login and session management
-Data Input: Supports CSV upload and manual expense entry
-Analysis: Identifies spending patterns and generates insights
-Visualization: Uses charts to represent financial trends clearly
-Features
-Track and manage expenses
-Upload and analyze CSV data
-Category-wise expense breakdown
-Detect overspending patterns
-Generate smart financial suggestions
-Visualize spending trends
-Basic expense prediction
-User authentication (login/signup)
-How to Run
-Clone the repository
+SpendSmart AI is a smart financial dashboard that helps users track expenses, analyze spending habits, and make better financial decisions using intuitive insights and predictions.
 
-Install dependencies
+---
 
-pip install -r requirements.txt
+## ✨ Features
 
-Run the application
+* 🔐 **User Authentication**
 
-streamlit run app.py
-Directory Structure
-ai-financial-advisor/
-│
+  * Signup & Login system using Firebase
+* 📂 **CSV Upload**
+
+  * Upload transaction data easily
+* 📊 **Smart Dashboard**
+
+  * Daily & monthly spending insights
+* 🎯 **Goal Tracking**
+
+  * Track progress towards financial goals
+* 🔮 **Predictions**
+
+  * Estimate future spending
+* ☁️ **Cloud Storage**
+
+  * Data stored securely using Firebase Firestore
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend & App Framework:** Streamlit
+* **Backend / Logic:** Python
+* **Database:** Firebase Firestore
+* **Data Processing:** Pandas
+
+---
+
+## 📁 Project Structure
+
+```
 ├── app.py              # Main Streamlit app
 ├── auth.py             # Authentication logic
 ├── requirements.txt    # Dependencies
-└── README.md           # Documentation
-Future Improvements
-Advanced ML-based predictions
-Smart alerts for overspending
-Mobile-responsive UI
-Cloud deployment
-Multi-user support
+├── database.db         # (local fallback - optional)
+└── README.md
+```
+
+---
+
+## ⚙️ Setup Instructions (Local)
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/spendsmart-ai.git
+cd spendsmart-ai
+```
+
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Add Firebase Key
+
+* Download your Firebase service account JSON
+* Place it in the project folder as:
+
+```
+firebase_key.json
+```
+
+### 4. Run the app
+
+```bash
+streamlit run app.py
+```
+
+---
+
+## ☁️ Deployment (Streamlit Cloud)
+
+1. Push code to GitHub
+2. Go to **Streamlit Cloud**
+3. Click **New App → Select repo**
+4. Set:
+
+   * Main file: `app.py`
+5. Add Firebase key in **Secrets**:
+
+```toml
+firebase_key = "PASTE_YOUR_JSON_AS_STRING"
+```
+
+6. Deploy 🚀
+
+---
+
+## 📊 Sample CSV Format
+
+Your CSV must have:
+
+```
+Date,Description,Amount
+2024-03-01,Zomato,250
+2024-03-02,Uber,180
+```
+
+---
+
+## 🔐 Security Note
+
+* Do NOT upload `firebase_key.json` to GitHub
+* Always use **Streamlit secrets** for deployment
+
+---
+
+## 🚀 Future Improvements
+
+* 📈 AI-based expense categorization
+* 📊 Advanced visual analytics
+* 💡 Personalized financial tips
+* 📱 Mobile-friendly UI
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork this repo and improve it!
+
+---
+
+## 👩‍💻 Author
+
+**Kruthikha B**
+CSE (Data Science) Student | Developer
+
+---
+
+## ⭐ Show Some Love
+
+If you liked this project, give it a ⭐ on GitHub!
