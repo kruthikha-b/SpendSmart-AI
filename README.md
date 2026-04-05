@@ -1,74 +1,44 @@
-AI Financial Advisor – SpendSmart AI
+AI-Financial-Advisor
+AI Financial Advisor (SpendSmart AI)
 
-An intelligent, data-driven financial assistant that helps users track expenses, analyze spending behavior, and make smarter financial decisions through actionable insights and visualizations.
+A simple AI-powered financial advisor built using Streamlit that helps users track expenses, analyze spending patterns, and make smarter financial decisions through data-driven insights and visualizations.
 
-Overview
-Managing personal finances can be overwhelming without clear insights. This project aims to simplify financial tracking by providing clear visualization of spending patterns, intelligent suggestions to improve savings, and data-driven insights for better decision-making.
+Approach
+Frontend & UI: Built using Streamlit for interactive dashboards
+Data Processing: Used Pandas and NumPy for efficient data handling
+Authentication: Custom module for user login and session management
+Data Input: Supports CSV upload and manual expense entry
+Analysis: Identifies spending patterns and generates insights
+Visualization: Uses charts to represent financial trends clearly
+Features
+Track and manage expenses
+Upload and analyze CSV data
+Category-wise expense breakdown
+Detect overspending patterns
+Generate smart financial suggestions
+Visualize spending trends
+Basic expense prediction
+User authentication (login/signup)
+How to Run
+Clone the repository
 
-Key Features
+Install dependencies
 
-Expense Tracking
-Upload or input expense data (CSV/manual). Structured data handling ensures accuracy.
-Spending Analysis
-Category-wise expense breakdown. Monthly and daily trend analysis.
-Smart Insights
-Detects overspending patterns and suggests areas to reduce expenses.
-Expense Prediction
-Estimates future spending based on historical trends.
-Interactive Visualizations
-Provides graphs and charts for intuitive understanding.
+pip install -r requirements.txt
 
-Tech Stack
+Run the application
 
-Frontend: Streamlit
-Backend: Python
-Data Processing: Pandas, NumPy
-Visualization: Matplotlib / Seaborn
-Version Control: Git, GitHub
-
-Project Structure
-
+streamlit run app.py
+Directory Structure
 ai-financial-advisor/
-app.py – Main application handling UI and logic
-auth.py – User authentication (login/signup/session handling)
-requirements.txt – Project dependencies
-README.md – Project documentation
-
-How It Works
-
-User uploads or inputs expense data
-Data is cleaned and processed using Pandas
-Spending patterns are analyzed
-Insights and recommendations are generated
-Results are displayed using visual dashboards
-
-Sample Dataset
-
-Date: 2026-03-01, Category: Food, Amount: 250
-Date: 2026-03-02, Category: Transport, Amount: 100
-Date: 2026-03-03, Category: Shopping, Amount: 500
-
-Installation & Setup
-
-Clone the repository using git clone https://github.com/your-username/ai-financial-advisor.git
-Navigate to the project folder
-Install dependencies using pip install -r requirements.txt
-Run the application using streamlit run app.py
-
-Example Use Case
-
-A student uploads monthly expense data. The system analyzes spending behavior, identifies the highest spending category, shows trends over time, and suggests ways to reduce unnecessary expenses.
-
-Future Enhancements
-
-Advanced machine learning-based predictions
-Smart alerts for unusual spending
-Mobile-friendly UI
+│
+├── app.py              # Main Streamlit app
+├── auth.py             # Authentication logic
+├── requirements.txt    # Dependencies
+└── README.md           # Documentation
+Future Improvements
+Advanced ML-based predictions
+Smart alerts for overspending
+Mobile-responsive UI
 Cloud deployment
-User authentication with personalized dashboards
-
-Limitations
-
-Works only with structured input data
-Prediction model is basic and not highly accurate
-No real-time bank integration
+Multi-user support
