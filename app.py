@@ -6,14 +6,14 @@ import time
 import matplotlib.pyplot as plt
 import json
 
-# 🔥 Initialize Firebase (SAFE VERSION)
+# Initialize Firebase 
 import firebase_admin
 from firebase_admin import credentials, firestore
 
 
 
 
-firebase_dict = dict(st.secrets["firebase_key"])  # 🔥 FIX
+firebase_dict = dict(st.secrets["firebase_key"])
 
 if not firebase_admin._apps:
     cred = credentials.Certificate(firebase_dict)
@@ -21,7 +21,7 @@ if not firebase_admin._apps:
 
 
 db = firestore.client()
-# ✅ ADD USER
+# ADD USER
 def add_user(username, password):
     doc = db.collection("users").document(username).get()
 
@@ -45,19 +45,19 @@ def login_user(username, password):
 
     return False
 
-# ✅ SAVE TRANSACTIONS
+# SAVE TRANSACTIONS
 def save_transactions(username, df):
 
     if not username:
-        return  # 🚨 prevent crash
+        return  #prevent crash
 
-    data = df.to_dict(orient="records")  # ✅ clean format
+    data = df.to_dict(orient="records")  #clean format
 
     db.collection("transactions").document(username).set({
         "data": data
     })
 
-# ✅ LOAD TRANSACTIONS
+# LOAD TRANSACTIONS
 def load_transactions(username):
 
     if not username:
@@ -71,22 +71,22 @@ def load_transactions(username):
 
     return None
 
-# ✅ PAGE CONFIG (FIRST LINE ALWAYS)
+# PAGE CONFIG
 st.set_page_config(layout="wide")
 
-# 🎨 GLOBAL CSS (ONLY ONCE)
+# GLOBAL CSS 
 st.markdown("""
 <style>
 
 /* REMOVE DEFAULT HEADER */
 header {visibility: hidden;}
 
-/* FIX TOP SPACING */
+/*TOP SPACING */
 .block-container {
     padding-top: 2rem;
 }
 
-/* 🌈 BACKGROUND */
+/* BACKGROUND */
 [data-testid="stAppViewContainer"] {
     background: linear-gradient(135deg, #f8fafc, #e0f2fe);
 }
@@ -107,7 +107,7 @@ header {visibility: hidden;}
     transform: scale(1.05);
 }
 
-/* 🔥 NAVBAR CONTAINER STYLE */
+/* NAVBAR CONTAINER STYLE */
 section[data-testid="stHorizontalBlock"] {
     background: linear-gradient(90deg, #020617, #0f172a);
     padding: 14px 30px;
@@ -121,7 +121,7 @@ section[data-testid="stHorizontalBlock"] {
 
 if "username" not in st.session_state:
     st.session_state.username = ""
-# 🧠 STATE INIT
+# STATE INIT
 if "page" not in st.session_state:
     st.session_state.page = "home"
 
@@ -130,13 +130,12 @@ if "logged_in" not in st.session_state:
 
 
 
-# 🌐 NAVBAR (CLEAN & FIXED)
-# 🌐 NAVBAR (FINAL POLISHED)
+# 🌐 NAVBAR 
 
 nav = st.container()
 
 with nav:
-    col1, col2 = st.columns([6,2])  # BIG LEFT, SMALL RIGHT
+    col1, col2 = st.columns([6,2])  
 
     # LEFT → LOGO
     with col1:
@@ -145,9 +144,9 @@ with nav:
         unsafe_allow_html=True
     )
 
-    # RIGHT → BUTTONS (TIGHT GROUP)
+    # RIGHT → BUTTONS 
     with col2:
-        b1, b2, b3 = st.columns(3, gap="small")  # 👈 THIS REDUCES SPACE
+        b1, b2, b3 = st.columns(3, gap="small")  
 
         with b1:
             if st.button("Home", key="nav_home"):
@@ -171,12 +170,12 @@ with nav:
                     st.rerun()
 
 st.divider()
-# 🌟 HOME PAGE
+# HOME PAGE
 if st.session_state.page == "home":
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 
-    # CENTER EVERYTHING
+   
     col1, col2, col3 = st.columns([1,2,1])
 
     with col2:
@@ -274,7 +273,7 @@ elif st.session_state.page == "dashboard":
 
     st.markdown(f"### 👋 Welcome back, {st.session_state.username}!")
 
-    # 🎨 PREMIUM CSS
+    # CSS
     st.markdown("""
     <style>
     .card {
@@ -351,13 +350,13 @@ elif st.session_state.page == "dashboard":
 
         df["Category"] = df["Description"].apply(categorize)
 
-        # 🧠 SECTION STATE
+        # SECTION STATE
         if "section" not in st.session_state:
             st.session_state.section = "overview"
 
         st.markdown("### 🚀 Explore Insights")
 
-        # 🎛️ NAV BUTTONS
+        # NAV BUTTONS
         col1, col2, col3, col4 = st.columns(4)
 
         with col1:
